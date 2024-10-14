@@ -1,0 +1,46 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 99vh;
+  background-image: url('../img/erro-404.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px){
+  body {
+    background-size: 768px 100%;
+  }
+}
+
+@media screen and (max-width: 425px){
+  body {
+    background-size: 425px 553px;
+  }
+}
+
+@media screen and (max-width: 375px){
+  body {
+    background-size: 375px 100%;
+  }
+}
+
+@media screen and (max-width: 360px){
+  body {
+    background-size: 360px 100%;
+  }
+}
+
+@media screen and (max-width: 320px){
+  body {
+    background-size: 320px 554px;
+  }
+}

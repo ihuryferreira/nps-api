@@ -1,0 +1,9 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "admin",
+      "senha": "$2b$10$sCSJ.fIbegoFq7ucWz9Ajexhxec/FT66EATPIH4QVjeKaZek7vQ5a"
+    }
+  ]
+}

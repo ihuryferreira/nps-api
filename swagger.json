@@ -1,0 +1,354 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Pesquisa de Satisfação",
+    "description": "Esta API permite enviar, editar, deletar e consultar respostas para pesquisas de satisfação.",
+    "termsOfService": "http://localhost:3000/terms",
+    "contact": {
+      "email": "programadorihuryferreira@gmail.com"
+    },
+    "version": "1.0.2"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Api Produção"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/belavista": {
+      "get": {
+        "summary": "Obtém todas as respostas para a pesquisa Bela Vista",
+        "description": "Recupera todas as respostas enviadas para a pesquisa de satisfação Bela Vista.",
+        "responses": {
+          "200": {
+            "description": "Respostas da pesquisa retornadas com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "pesquisa1": {
+                        "type": "string",
+                        "example": "9"
+                      },
+                      "pesquisa2": {
+                        "type": "string",
+                        "example": "9"
+                      },
+                      "pesquisa3": {
+                        "type": "string",
+                        "example": "10"
+                      },
+                      "comentario": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "data_e_hora": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-09-01T00:18:40.389Z"
+                      }
+                    },
+                    "required": ["id", "pesquisa1", "pesquisa2", "pesquisa3", "comentario", "data_e_hora"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "summary": "Cria um novo registro de pesquisa",
+        "description": "Adiciona um novo registro de resposta para a pesquisa de satisfação Bela Vista.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pesquisa1": {
+                    "type": "string",
+                    "example": "9"
+                  },
+                  "pesquisa2": {
+                    "type": "string",
+                    "example": "9"
+                  },
+                  "pesquisa3": {
+                    "type": "string",
+                    "example": "10"
+                  },
+                  "comentario": {
+                    "type": "string",
+                    "example": ""
+                  }
+                },
+                "required": ["pesquisa1", "pesquisa2", "pesquisa3"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Registro criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "pesquisa1": {
+                      "type": "string",
+                      "example": "9"
+                    },
+                    "pesquisa2": {
+                      "type": "string",
+                      "example": "9"
+                    },
+                    "pesquisa3": {
+                      "type": "string",
+                      "example": "10"
+                    },
+                    "comentario": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "data_e_hora": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2024-09-01T00:18:40.389Z"
+                    }
+                  },
+                  "required": ["id", "pesquisa1", "pesquisa2", "pesquisa3", "comentario", "data_e_hora"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Solicitação inválida. Campos obrigatórios não preenchidos."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/belavista/{id}": {
+      "get": {
+        "summary": "Obtém um registro específico da pesquisa",
+        "description": "Recupera um registro específico da pesquisa de satisfação Bela Vista pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do registro a ser recuperado."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Registro retornado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "pesquisa1": {
+                      "type": "string",
+                      "example": "9"
+                    },
+                    "pesquisa2": {
+                      "type": "string",
+                      "example": "9"
+                    },
+                    "pesquisa3": {
+                      "type": "string",
+                      "example": "10"
+                    },
+                    "comentario": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "data_e_hora": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2024-09-01T00:18:40.389Z"
+                    }
+                  },
+                  "required": ["id", "pesquisa1", "pesquisa2", "pesquisa3", "comentario", "data_e_hora"]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "summary": "Atualiza um registro existente",
+        "description": "Atualiza um registro existente da pesquisa de satisfação Bela Vista pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do registro a ser atualizado."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pesquisa1": {
+                    "type": "string",
+                    "example": "9"
+                  },
+                  "pesquisa2": {
+                    "type": "string",
+                    "example": "9"
+                  },
+                  "pesquisa3": {
+                    "type": "string",
+                    "example": "10"
+                  },
+                  "comentario": {
+                    "type": "string",
+                    "example": ""
+                  }
+                },
+                "required": ["pesquisa1", "pesquisa2", "pesquisa3"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Registro atualizado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "pesquisa1": {
+                      "type": "string",
+                      "example": "9"
+                    },
+                    "pesquisa2": {
+                      "type": "string",
+                      "example": "9"
+                    },
+                    "pesquisa3": {
+                      "type": "string",
+                      "example": "10"
+                    },
+                    "comentario": {
+                      "type": "string",
+                      "example": ""
+                    },
+                    "data_e_hora": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2024-09-01T00:18:40.389Z"
+                    }
+                  },
+                  "required": ["id", "pesquisa1", "pesquisa2", "pesquisa3", "comentario", "data_e_hora"]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deleta um registro específico",
+        "description": "Remove um registro específico da pesquisa de satisfação Bela Vista pelo ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "ID do registro a ser deletado."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Registro deletado com sucesso."
+          },
+          "404": {
+            "description": "Registro não encontrado."
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  }
+}
